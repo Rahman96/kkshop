@@ -1,0 +1,18 @@
+<md-toolbar class="md-menu-toolbar md-whiteframe-1dp" layout="row">
+    <md-button class="hide-gt-lg" ng-click="toggleLeft()">
+        <md-icon md-svg-src="images/svg/ic_menu_24px.svg"></md-icon>
+    </md-button>
+    <div layout="row" layout-align="start center" flex class="hide-sm hide-md">
+        <a ng-href="#{{menu.url}}" class="md-button" ng-class="{'md-primary':current_path == highlight(menu.url),'md-raised':current_path == highlight(menu.url)}" ng-repeat="menu in menubars">{{menu.name}}</a>
+    </div>
+    <md-menu layout="row" layout-align="end center" flex md-position-mode="target-right target" class="hide-gt-md">
+        <md-button ng-click="$mdOpenMenu($event);">
+            <md-icon md-svg-icon="images/svg/more_vert.svg"></md-icon>
+        </md-button>
+        <md-menu-content width="4" md-menu-align-target>
+            <md-menu-item ng-repeat="menu in menubars" layout-align="center center">
+                <a ng-href="#{{menu.url}}" class="md-button" ng-class="{'md-primary':current_path == highlight(menu.url),'md-raised':current_path == highlight(menu.url)}">{{menu.name}}</a>
+            </md-menu-item>
+        </md-menu-content>
+    </md-menu>
+</md-toolbar>
