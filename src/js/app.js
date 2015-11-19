@@ -14,8 +14,11 @@ angular.module("kkshop", [
         angular.forEach(configData, function(ctrl) {
             if (ctrl.type != "link") return;
             var controllername = ctrl.url.replace(/[a-z]\/[a-z]/g, function(letter) {
-                return letter.substring(2, letter.length).toUpperCase();
-            }).replace("/", "");
+                return letter.replace(/\/[a-z]/g,function(l){
+                    l = l.replace("/","").toUpperCase();
+                    return l;
+                })
+            }).replace("/","");
             controllername = controllername + "Controller";
             $routeProvider.when(ctrl.url, {
                 templateUrl: ctrl.url.substring(1, ctrl.url.length) + ".html",
@@ -23,7 +26,7 @@ angular.module("kkshop", [
                 controller: controllername
             });
         })
-        $routeProvider.otherwise("/");
+        $routeProvider.otherwise("/consoles/welcome");
         // $httpProvider.defaults.useXDomain = true;
         // $httpProvider.defaults.withCredentials = true;
         // delete $httpProvider.defaults.headers.common["X-Requested-With"];

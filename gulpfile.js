@@ -73,7 +73,10 @@ gulp.task("controller", function() {
     configData.map(function(ctrl) {
         if (ctrl.type == "link") {
             var controllername = ctrl.url.replace(/[a-z]\/[a-z]/g, function(letter) {
-                return letter.substring(2, letter.length).toUpperCase();
+                return letter.replace(/\/[a-z]/g,function(l){
+                    l = l.replace("/","").toUpperCase();
+                    return l;
+                })
             }).replace("/","");
             controllername = controllername + "Controller";
             var foldername = ctrl.url.split("/")[1];

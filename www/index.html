@@ -37,7 +37,8 @@
             </ul>
         </md-content>
     </md-sidenav>
-    <div layout="column" flex>
+    <div layout="column" flex role="main">
+        <md-progress-linear md-mode="indeterminate" class="loading" ng-if="toast_state"></md-progress-linear>
         <div ng-include="'layout/menubar.html'" ng-controller="menubarController"></div>
         <md-content ng-view md-scroll-y flex layout-padding>
         </md-content>
