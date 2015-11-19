@@ -1,7 +1,7 @@
 #KKSHOP
 ###Materialize Design use Angular Materialzie 
 KKSHOP is ```angular``` and ```angular materialize``` dependency, use ```gulp``` as auto building tool. If you like, just ```git pull```, run the following command ~.~  PS: I suppose you already had ```nodejs``` evironment install and ```bower``` install!
-##STEP1  run node npm
+##STEP1  run nodejs npm
 ```
 npm install
 ```
