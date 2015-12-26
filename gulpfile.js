@@ -20,8 +20,8 @@ var config = {
         port: "8000"
     },
     fonts: [
-        // "./bower_components/Materialize/font/material-design-icons/*.*",
-        // "./bower_components/Materialize/font/roboto/*.*"
+        "./bower_components/material-design-icons/iconfont/MaterialIcons-Regular.*",
+        // "./bower_components/material-design-icons/iconfont/roboto/*.*"
     ],
     js: [
         // "./bower_components/jquery/dist/jquery.js",
@@ -31,6 +31,7 @@ var config = {
         "./bower_components/angular-aria/angular-aria.js",
         "./bower_components/angular-material/angular-material.js",
         "./bower_components/angular-local-storage/dist/angular-local-storage.js",
+        "./bower_components/ng-flow/dist/ng-flow-standalone.js"
     ],
     less: {
         src: [
@@ -138,7 +139,7 @@ gulp.task("svg", function() {
 // copy fonts
 gulp.task("fonts", function() {
     return gulp.src(config.fonts)
-        .pipe(gulp.dest(path.join(config.dest, "font")));
+        .pipe(gulp.dest(path.join(config.dest, "fonts")));
 });
 // copy html file to dest 
 gulp.task("html", function() {

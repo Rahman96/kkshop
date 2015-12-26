@@ -3,7 +3,7 @@ angular.module("kkshop", [
         "ngRoute",
         "ngMaterial",
         "LocalStorageModule",
-        // "flow",
+        "flow",
         // "timer"
     ])
     .config(function($routeProvider, $httpProvider, $locationProvider, localStorageServiceProvider, config) {

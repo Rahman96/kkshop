@@ -1,1 +1,76 @@
-site
+<h3>站点设置</h3>
+<form layout="column" name="siteForm" ng-submit="ajaxForm()">
+    <div layout="column">
+        <md-input-container>
+            <label>网站名称</label>
+            <input name="sitename" ng-model="input.name" required>
+            <div ng-messages="siteForm.sitename.$error" ng-if="siteForm.sitename.$dirty && siteForm.sitename.$invalid">
+                <div ng-message="required">必填</div>
+            </div>
+        </md-input-container>
+        <span class="md-body-1">网站名称，将显示在顶部欢迎信息等位置</span>
+    </div>
+    <div layout="column">
+        <p>网站logo</p>
+        <div flow-init="{singleFile:true}" flow-files-submitted="$flow.upload()" class="singleFileUploader">
+            <img src="../images/default.jpg" flow-btn flow-attrs="{accept:'image/*'}" ng-if="$flow.files.length == 0" alt="">
+            <div class="preview" layout="row" layout-align="center center" ng-if="$flow.files.length>0">
+                <img flow-img="$flow.files[0]" alt="">
+            </div>
+            <i class="material-icons close" ng-click="$flow.cancel()" ng-if="$flow.files.length>0">close</i>
+            <md-progress-circular md-mode="determinate" value="{{$flow.files[0].progress()*100}}" ng-if="$flow.files[0].isUploading()"></md-progress-circular>
+        </div>
+        <span class="md-body-1">180*50px</span>
+    </div>
+    <div layout="column">
+        <p>会员中心logo</p>
+        <div flow-init="{singleFile:true}" flow-files-submitted="$flow.upload()" class="singleFileUploader">
+            <img src="../images/default.jpg" flow-btn flow-attrs="{accept:'image/*'}" ng-if="$flow.files.length == 0" alt="">
+            <div class="preview" layout="row" layout-align="center center" ng-if="$flow.files.length>0">
+                <img flow-img="$flow.files[0]" alt="">
+            </div>
+            <i class="material-icons close" ng-click="$flow.cancel()" ng-if="$flow.files.length>0">close</i>
+            <md-progress-circular md-mode="determinate" value="{{$flow.files[0].progress()*100}}" ng-if="$flow.files[0].isUploading()"></md-progress-circular>
+        </div>
+        <span class="md-body-1">默认为网站logo，在会员中心头部显示，建议180*50px</span>
+    </div>
+    <div layout="column">
+        <p>商家中心logo</p>
+        <div flow-init="{singleFile:true}" flow-files-submitted="$flow.upload()" class="singleFileUploader">
+            <img src="../images/default.jpg" flow-btn flow-attrs="{accept:'image/*'}" ng-if="$flow.files.length == 0" alt="">
+            <div class="preview" layout="row" layout-align="center center" ng-if="$flow.files.length>0">
+                <img flow-img="$flow.files[0]" alt="">
+            </div>
+            <i class="material-icons close" ng-click="$flow.cancel()" ng-if="$flow.files.length>0">close</i>
+            <md-progress-circular md-mode="determinate" value="{{$flow.files[0].progress()*100}}" ng-if="$flow.files[0].isUploading()"></md-progress-circular>
+        </div>
+        <span class="md-body-1">150*40px</span>
+    </div>
+    <div layout="column">
+        <md-input-container>
+            <label>ICP证书</label>
+            <input name="book" ng-model="input.book" required>
+        </md-input-container>
+        <span class="md-body-1">前台页面底部可以显示 ICP 备案信息，如果网站已备案，在此输入你的授权码，它将显示在前台页面底部，如果没有请留空</span>
+    </div>
+    <div layout="column">
+        <md-input-container>
+            <label>平台客服联系电话</label>
+            <input name="telephone" ng-model="input.telephone" required>
+        </md-input-container>
+        <span class="md-body-1">前台卖家中心页面右下侧可以显示，方便卖家遇到问题时咨询，多个请用半角逗号 "," 隔开</span>
+    </div>
+    <div layout="column">
+        <md-input-container>
+            <label>电子邮件</label>
+            <input type="email" name="email" ng-model="email" required>
+            <div ng-messages="siteForm.email.$error" ng-if="siteForm.email.$dirty && siteForm.email.$invalid">
+                <div ng-message="email">邮箱格式xx@x</div>
+            </div>
+        </md-input-container>
+        <span class="md-body-1">前台卖家中心页面右下侧可以显示，方便卖家遇到问题时咨询</span>
+    </div>
+    <p layout="row">
+        <md-button class="md-raised md-primary" ng-disabled="siteForm.$invalid">提交</md-button>
+    </p>
+</form>
